@@ -234,3 +234,17 @@ sup {
   width: 380px;
   margin-top: -20px;
 }
+
+.vignette {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 380px;
+  height: 460px;
+  box-shadow: 0 0 300px rgba(0,0,0,1) inset;
+  margin-top: -20px;
+  z-index: 999;
+
+}
+
+
