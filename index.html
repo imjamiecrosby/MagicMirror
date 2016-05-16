@@ -23,55 +23,65 @@
 	<div class="region middle center">
 		<div class="container">
 			<div id="map"></div>
+			<script>
+			var map = new GMaps({
+			    el: '#map',
+			    lat: 37.7924449,
+			    lng: -122.341294,
+			    Zoom: 11,
+			    disableDefaultUI: true,
+			    overviewMapControl: false,
+			    mapTypeControl: false,
+			});
+			map.addLayer('traffic');
 
-			    <script>
-    				var map = new GMaps({
-      					el: '#map',
-      					lat: 37.7924449,
-      					lng: -122.341294,
-      					Zoom: 11,
-      					disableDefaultUI: true,
-      					overviewMapControl: false,
-      					mapTypeControl: false,
-    				});
-    				map.addLayer('traffic');
+			var styles = [{
+			    stylers: [{
+			        hue: "#00ffe6"
+			    }, {
+			        saturation: -20
+			    },  {
+			        invert_lightness: 'true'
+			    },  ]
+			}, {
+			    featureType: "water",
+			    stylers: [{
+			        saturation: -100
+			    },  {
+			    	hue: "#0D4F8B"
+			    },  ]
+			}, {
+			    featureType: "road",
+			    elementType: "geometry",
+			    stylers: [{
+			        lightness: 100
+			    }, {
+			        visibility: "simplified"
+			    }]
+			}, {
+			    featureType: "road",
+			    elementType: "labels",
+			    stylers: [{
+			        visibility: "off"
+			    }]
+			}, {
+			    elementType: "labels",
+			    stylers: [{
+			        visibility: "off"
+			    }]
+			}];
+			map.addStyle({
+			    styledMapName: "Styled Map",
+			    styles: styles,
+			    mapTypeId: "map_style"
+			});
 
-    				var styles = [
-					  {
-					    stylers: [
-					      { saturation: -100 },
-					      { invert_lightness: 'true' },
-					      { lightness: 1 },
-					    ]
-					  },{
-					    featureType: "road",
-					    elementType: "geometry",
-					    stylers: [
-					      { lightness: 100 },
-					      { visibility: "simplified" }
-					    ]
-					  },{
-					    featureType: "road",
-					    elementType: "labels",
-					    stylers: [
-					      { visibility: "off" }
-					    ]
-					  }
-					];
+			map.setStyle("map_style");
 
-					map.addStyle({
-			            styledMapName:"Styled Map",
-			            styles: styles,
-			            mapTypeId: "map_style"  
-			        });
-			        
-			        map.setStyle("map_style");
-
-			        setTimeout(function () {
-			        	map.refresh();
-			        }, 300000);
-
-  				</script>
+			setTimeout(function() {
+			    map.refresh();
+			}, 300000);
+			</script>
 		</div>
 	</div>
 	<div class="region lower third"><div class="container"><br/></div></div>
