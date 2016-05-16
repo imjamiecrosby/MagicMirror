@@ -67,6 +67,8 @@ app.on("activate", function() {
 	}
 });
 
+app.commandLine.appendSwitch('proxy-bypass-list', '<local>;*.google.com;')
+
 // Start the core application.
 // This starts all node helpers and starts the webserver.
 core.start(function(c) {
