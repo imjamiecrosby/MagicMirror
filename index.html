@@ -8,10 +8,12 @@
 	<link rel="stylesheet" type="text/css" href="css/main.css">
 	<link rel="stylesheet" type="text/css" href="fonts/roboto.css">
 	<script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBVwLuJQp0vSp39OpHcs_STSPF4tENgydw"></script>
-	<script type="text/javascript" src="js/gmaps.js"></script>
-
+	<script type="text/javascript" src="js/maps.js"></script>
+	<script>
+		function init() { updateMap(); }
+	</script>		
 </head>
-<body>
+<body onload="init();">
 	<div class="region fullscreen below"><div class="container"></div></div>
 	<div class="region top bar">
 		<div class="container"></div>
@@ -23,67 +25,8 @@
 	<div class="region middle center">
 		<div class="container">
 			<div class="vignette"></div>
-			<div id="map"></div>
-			<script>
-			var map = new GMaps({
-			    el: '#map',
-			    lat: 37.7924449,
-			    lng: -122.341294,
-			    Zoom: 11,
-			    disableDefaultUI: true,
-			    overviewMapControl: false,
-			    mapTypeControl: false,
-			    hideInfoWindows: true,
-			});
-			map.addLayer('traffic');
-
-			var styles = [{
-			    stylers: [{
-			        hue: "#00ffe6"
-			    }, {
-			        saturation: -20
-			    },  {
-			        invert_lightness: 'true'
-			    },  ]
-			}, {
-			    featureType: "water",
-			    stylers: [{
-			        saturation: -100
-			    },  {
-			    	hue: "#0D4F8B"
-			    },  ]
-			}, {
-			    featureType: "road",
-			    elementType: "geometry",
-			    stylers: [{
-			        lightness: 100
-			    }, {
-			        visibility: "simplified"
-			    }]
-			}, {
-			    featureType: "road",
-			    elementType: "labels",
-			    stylers: [{
-			        visibility: "off"
-			    }]
-			}, {
-			    elementType: "labels",
-			    stylers: [{
-			        visibility: "off"
-			    }]
-			}];
-			map.addStyle({
-			    styledMapName: "Styled Map",
-			    styles: styles,
-			    mapTypeId: "map_style"
-			});
-
-			map.setStyle("map_style");
-
-			setTimeout(function() {
-			    map.refresh();
-			}, 300000);
-			</script>
+			<div id="google_map"></div>	
+				
 		</div>
 	</div>
 	<div class="region lower third"><div class="container"><br/></div></div>

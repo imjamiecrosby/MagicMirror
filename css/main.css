@@ -229,10 +229,10 @@ sup {
   border-collapse: separate;
 }
 
-#map {
-  height: 460px;
+#google_map {
+  height: 380px;
   width: 380px;
-  margin-top: -20px;
+  margin-top: -60px;
 }
 
 .vignette {
@@ -245,7 +245,7 @@ sup {
      -moz-box-shadow: 0 0 300px rgba(0,0,0,1) inset;
           box-shadow: 0 0 300px rgba(0,0,0,1) inset;
 
-  margin-top: -20px;
+  margin-top: -60px;
   z-index: 999;
 
 }
